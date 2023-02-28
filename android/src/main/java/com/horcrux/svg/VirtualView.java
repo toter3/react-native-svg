@@ -24,6 +24,7 @@ import com.facebook.react.uimanager.OnLayoutEvent;
 import com.facebook.react.uimanager.PointerEvents;
 import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.uimanager.events.EventDispatcher;
+import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.views.view.ReactViewGroup;
 import java.util.ArrayList;
 import javax.annotation.Nullable;
