@@ -114,25 +114,25 @@ public abstract class VirtualView extends ReactViewGroup {
     super.onInitializeAccessibilityNodeInfo(info);
     if (mClientRect != null) {
 
-    SvgView root = getSvgView();
+      SvgView root = getSvgView();
 
-    int[] rootPositionOnScreen = new int[2];
-    getSvgView().getLocationOnScreen(rootPositionOnScreen);
-    Rect infoBoundsInScreen = new Rect();
-    infoBoundsInScreen.left = rootPositionOnScreen[0] + (int) Math.floor(mClientRect.left);
-    infoBoundsInScreen.top = rootPositionOnScreen[1] + (int) Math.floor(mClientRect.top);
-    infoBoundsInScreen.right = infoBoundsInScreen.left + (int) Math.ceil(mClientRect.width());
-    infoBoundsInScreen.bottom = infoBoundsInScreen.top + (int) Math.ceil(mClientRect.height());
+      int[] rootPositionOnScreen = new int[2];
+      getSvgView().getLocationOnScreen(rootPositionOnScreen);
+      Rect infoBoundsInScreen = new Rect();
+      infoBoundsInScreen.left = rootPositionOnScreen[0] + (int) Math.floor(mClientRect.left);
+      infoBoundsInScreen.top = rootPositionOnScreen[1] + (int) Math.floor(mClientRect.top);
+      infoBoundsInScreen.right = infoBoundsInScreen.left + (int) Math.ceil(mClientRect.width());
+      infoBoundsInScreen.bottom = infoBoundsInScreen.top + (int) Math.ceil(mClientRect.height());
 
-    Rect rootVisibleRect = new Rect();
-    boolean isRootVisible = root.getGlobalVisibleRect(rootVisibleRect);
-    boolean infoIsVisibleToUser = isRootVisible && infoBoundsInScreen.intersect(rootVisibleRect);
+      Rect rootVisibleRect = new Rect();
+      boolean isRootVisible = root.getGlobalVisibleRect(rootVisibleRect);
+      boolean infoIsVisibleToUser = isRootVisible && infoBoundsInScreen.intersect(rootVisibleRect);
 
 
-    String infoClassName = this.getClass().getCanonicalName();
-    info.setBoundsInScreen(infoBoundsInScreen);
-    info.setClassName(infoClassName);
-    info.setVisibleToUser(infoIsVisibleToUser);
+      String infoClassName = this.getClass().getCanonicalName();
+      info.setBoundsInScreen(infoBoundsInScreen);
+      info.setClassName(infoClassName);
+      info.setVisibleToUser(infoIsVisibleToUser);
     }
   }
 
@@ -273,16 +273,19 @@ public abstract class VirtualView extends ReactViewGroup {
     invalidate();
   }
 
+  @ReactProp(name = "accessible")
   public void setAccessible(boolean accessible) {
       this.setFocusable(accessible);
       invalidate();
   }
 
+  @ReactProp(name = "accessibilityLabel")
   public void setAccessibilityLabel(String accessibilityLabel) {
       this.setContentDescription(accessibilityLabel);
       invalidate();
   }
 
+  @ReactProp(name = "testID")
   public void setTestID(String testID) {
       this.setTag(testID);
       invalidate();
