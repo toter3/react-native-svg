@@ -471,7 +471,7 @@ class VirtualViewManager<V extends VirtualView> extends ViewGroupManager<Virtual
   }
 
   @ReactProp(name = "onLayout")
-  public void setOnLayout(V node, boolean onLayout) {
+  public void setOnLayout(V node, Boolean onLayout) {
     node.setOnLayout(onLayout);
   }
 
@@ -482,17 +482,17 @@ class VirtualViewManager<V extends VirtualView> extends ViewGroupManager<Virtual
 
   @ReactProp(name = "accessible")
   public void setAccessible(VirtualView node, boolean accessible) {
-      node.setAccessible(accessible);
+    node.setAccessible(accessible);
   }
 
   @ReactProp(name = "accessibilityLabel")
   public void setAccessibilityLabel(VirtualView node, String accessibilityLabel) {
-      node.setAccessibilityLabel(accessibilityLabel);
+    node.setAccessibilityLabel(accessibilityLabel);
   }
 
   @ReactProp(name = "testID")
   public void setTestID(VirtualView node, String testID) {
-      node.setTestID(testID);
+    node.setTestID(testID);
   }
 
   @ReactProp(name = "display")
